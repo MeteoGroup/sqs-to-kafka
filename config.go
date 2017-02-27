@@ -36,8 +36,8 @@ var (
 func init() {
   flag.StringVar(&awsAccessKey, "aws-access-key", "", "AWS access key")
   flag.StringVar(&awsSecretKey, "aws-secret-key", "", "AWS secret key")
-  flag.StringVar(&awsRegion, "aws-region", "", "AWS region")
-  flag.StringVar(&awsProfile, "aws-profile", "", "AWS profile")
+  flag.StringVar(&awsRegion, "aws-region", os.Getenv("AWS_REGION"), "AWS region")
+  flag.StringVar(&awsProfile, "aws-profile", os.Getenv("AWS_PROFILE"), "AWS profile")
   flag.BoolVar(&awsReadConfig, "aws-read-config", false, "read AWS configuration from `~/.aws/config`")
   flag.StringVar(&awsEndpoint, "aws-endpoint", os.Getenv("AWS_ENDPOINT"), "URL of the AWS endpoint")
   flag.StringVar(&sqsUrl, "sqs-url", os.Getenv("SQS_URL"), "URL of the SQS queue for incomming messages")

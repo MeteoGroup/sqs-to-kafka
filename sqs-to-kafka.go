@@ -22,8 +22,11 @@ import (
 
 func main() {
   logInfo("starting engines",
-    "sqsUrl", sqsUrl,
+    "awsProfile", awsProfile,
     "awsRegion", awsRegion,
+    "awsEndpoint", awsEndpoint,
+    "metricsAddress", metricsAddress,
+    "sqsUrl", sqsUrl,
     "kafkaBrokers", kafkaBrokers,
     "kafkaTopic", kafkaTopic,
   )
