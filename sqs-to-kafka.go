@@ -21,16 +21,6 @@ import (
 )
 
 func main() {
-  logInfo("starting engines",
-    "awsProfile", awsProfile,
-    "awsRegion", awsRegion,
-    "awsEndpoint", awsEndpoint,
-    "metricsAddress", metricsAddress,
-    "sqsUrl", sqsUrl,
-    "kafkaBrokers", kafkaBrokers,
-    "kafkaTopic", kafkaTopic,
-  )
-
   sqsClient := createSqsClient()
   kafkaProducer := createKafkaProducer()
   startPrometheusHttpExporter()

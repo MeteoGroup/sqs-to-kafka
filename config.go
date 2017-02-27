@@ -55,4 +55,14 @@ func init() {
   if kafkaTopic == "" {
     panic("Required parameter `--kafka-topic` is missing.")
   }
+
+  logInfo("starting with configuration",
+    "awsProfile", awsProfile,
+    "awsRegion", awsRegion,
+    "awsEndpoint", awsEndpoint,
+    "metricsAddress", metricsAddress,
+    "sqsUrl", sqsUrl,
+    "kafkaBrokers", kafkaBrokers,
+    "kafkaTopic", kafkaTopic,
+  )
 }
