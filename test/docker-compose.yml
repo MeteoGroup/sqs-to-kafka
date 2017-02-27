@@ -8,13 +8,14 @@ services:
     image: meteogroup/sqs-to-kafka:${IMAGE_TAG}
     command:
     - /bin/sqs-to-kafka
-    - --aws-endpoint=http://sqs:9324
-    - --aws-region=(don't care)
-    - --aws-secret-key=(don't care)
-    - --aws-access-key=(don't care)
-    - --sqs-url=http://sqs:9324/queue/messages
-    - --kafka-brokers=kafka:9092
-    - --kafka-topic=sqs-messages
+    environment:
+    - AWS_ENDPOINT=http://sqs:9324
+    - AWS_REGION=(don't care)
+    - AWS_ACCESS_KEY_ID=(don't care)
+    - AWS_SECRET_ACCESS_KEY=(don't care)
+    - SQS_URL=http://sqs:9324/queue/messages
+    - KAFKA_BROKERS=kafka:9092
+    - KAFKA_TOPIC=sqs-messages
     depends_on:
     - sqs
     - kafka

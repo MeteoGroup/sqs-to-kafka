@@ -1,8 +1,7 @@
 SQS to Kafka forwarder [![build status](https://travis-ci.org/MeteoGroup/sqs-to-kafka.svg)](https://travis-ci.org/MeteoGroup/sqs-to-kafka)
 ======================
 
-Fetches messages from SQS and forwards them to Kafka
-
+Fetches messages from SQS and forwards them to Kafka.
 
 ## Build
 
@@ -35,20 +34,27 @@ parameters, please refer to the go-documentation.
 
 `sqs-url`, `kafka-brokers` and `kafka-topic` are mandatory, everything else is
 optional. When `metrics-address` is given `sqs-to-kafka` binds that address to
-export prometheus compatible metrics.
-
-In addition to that some AWS parameters may be passed as environment variables
-as well, most notably:
+export prometheus compatible metrics. Parameters may set via environment
+variables as well
 
   - `AWS_ACCESS_KEY_ID`: AWS access key
   - `AWS_SECRET_ACCESS_KEY`: AWS secret key
   - `AWS_REGION`: AWS region
+  - `AWS_ENDPOINT`: URL of the AWS endpoint
   - `AWS_PROFILE`: AWS profile
   - `AWS_SDK_LOAD_CONFIG`: if set to `1` read AWS configuration from `~/.aws/config`
+  - `SQS_URL`: URL of the SQS queue for incomming messages
+  - `KAFKA_BROKERS`: list of Kafka brokers used for bootstrapping
+  - `KAFKA_TOPIC`: Kafka topic for outgoing messages
+  - `METRICS_ADDRESS`: Listening address to serve metrics
 
-See the [AWS SDK documentation](https://docs.aws.amazon.com/sdk-for-go/api/aws/session/)
-for a complete list. When both are specified, commandline parameters take
+When both are specified, commandline parameters take
 precedence over environment variables.
+
+In addition to that there a couple of AWS SDK specific parameters may be passed
+via environment variables, see the
+[AWS SDK documentation](https://docs.aws.amazon.com/sdk-for-go/api/aws/session/)
+for a complete list.
 
 
 ## Docker

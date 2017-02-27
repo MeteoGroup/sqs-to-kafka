@@ -15,7 +15,10 @@ limitations under the License.
  */
 package main
 
-import "flag"
+import (
+  "flag"
+  "os"
+)
 
 var (
   awsProfile = ""
@@ -36,11 +39,11 @@ func init() {
   flag.StringVar(&awsRegion, "aws-region", "", "AWS region")
   flag.StringVar(&awsProfile, "aws-profile", "", "AWS profile")
   flag.BoolVar(&awsReadConfig, "aws-read-config", false, "read AWS configuration from `~/.aws/config`")
-  flag.StringVar(&awsEndpoint, "aws-endpoint", "", "URL of the AWS endpoint")
-  flag.StringVar(&sqsUrl, "sqs-url", "", "URL of the SQS queue for incomming messages")
-  flag.StringVar(&kafkaBrokers, "kafka-brokers", "", "list of Kafka brokers used for bootstrapping")
-  flag.StringVar(&kafkaTopic, "kafka-topic", "", "Kafka topic for outgoing messages")
-  flag.StringVar(&metricsAddress, "metrics-address", "", "Listening address to serve metrics")
+  flag.StringVar(&awsEndpoint, "aws-endpoint", os.Getenv("AWS_ENDPOINT"), "URL of the AWS endpoint")
+  flag.StringVar(&sqsUrl, "sqs-url", os.Getenv("SQS_URL"), "URL of the SQS queue for incomming messages")
+  flag.StringVar(&kafkaBrokers, "kafka-brokers", os.Getenv("KAFKA_BROKERS"), "list of Kafka brokers used for bootstrapping")
+  flag.StringVar(&kafkaTopic, "kafka-topic", os.Getenv("KAFKA_TOPIC"), "Kafka topic for outgoing messages")
+  flag.StringVar(&metricsAddress, "metrics-address", os.Getenv("METRICS_ADDRESS"), "Listening address to serve metrics")
   flag.Parse()
 
   if sqsUrl == "" {
