@@ -1,0 +1,10 @@
+language: go
+go: 1.8.x
+
+services: docker
+sudo: required
+
+script:
+  - go build
+  - docker build -t meteogroup/sqs-to-kafka:test .
+  - test/test.sh
