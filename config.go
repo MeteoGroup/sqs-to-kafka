@@ -47,13 +47,13 @@ func init() {
   flag.Parse()
 
   if sqsUrl == "" {
-    panic("Required parameter `--sqs-url` is missing.")
+    panic("Required parameter `sqs-url` is missing.")
   }
   if kafkaBrokers == "" {
-    panic("Required parameter `--kafka-brokers` is missing.")
+    panic("Required parameter `kafka-brokers` is missing.")
   }
   if kafkaTopic == "" {
-    panic("Required parameter `--kafka-topic` is missing.")
+    panic("Required parameter `kafka-topic` is missing.")
   }
 
   logInfo("starting with configuration",
