@@ -1,4 +1,5 @@
-# SQS to Kafka forwarder
+SQS to Kafka forwarder [![build status](https://travis-ci.org/MeteoGroup/sqs-to-kafka.svg)](https://travis-ci.org/MeteoGroup)
+======================
 
 Fetches messages from SQS and forwards them to Kafka
 
