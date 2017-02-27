@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 
 if [ "$TRAVIS" != true ]; then
   echo "This script is intended to run within the travis build only" 1>&2
