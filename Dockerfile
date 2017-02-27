@@ -1,4 +1,4 @@
-FROM meteogroup/alpine
+FROM alpine
 
 RUN apk -U --no-cache upgrade \
  && apk -U --no-cache add ca-certificates
