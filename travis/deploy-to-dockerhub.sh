@@ -13,4 +13,4 @@ fi
 docker tag "meteogroup/sqs-to-kafka:$COMMIT" "meteogroup/sqs-to-kafka:$IMAGE_TAG"
 docker tag "meteogroup/sqs-to-kafka:$COMMIT" "meteogroup/sqs-to-kafka:latest"
 docker push "meteogroup/sqs-to-kafka:$IMAGE_TAG"
-docker push "meteogroup/sqs-to-kafka"
+docker push "meteogroup/sqs-to-kafka:latest"
