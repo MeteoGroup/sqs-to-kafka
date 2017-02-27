@@ -56,13 +56,22 @@ func init() {
     panic("Required parameter `kafka-topic` is missing.")
   }
 
-  logInfo("starting with configuration",
-    "awsProfile", awsProfile,
-    "awsRegion", awsRegion,
-    "awsEndpoint", awsEndpoint,
-    "metricsAddress", metricsAddress,
-    "sqsUrl", sqsUrl,
-    "kafkaBrokers", kafkaBrokers,
-    "kafkaTopic", kafkaTopic,
-  )
+  logConfig()
+}
+
+func logConfig() {
+  parameters := []interface{}{}
+  appendIfDefined := func(name string, value string) {
+    if (value != "") {
+      parameters = append(parameters, name, value)
+    }
+  }
+  appendIfDefined("awsProfile", awsProfile)
+  appendIfDefined("awsRegion", awsRegion)
+  appendIfDefined("awsEndpoint", awsEndpoint)
+  appendIfDefined("metricsAddress", metricsAddress)
+  appendIfDefined("sqsUrl", sqsUrl)
+  appendIfDefined("kafkaBrokers", kafkaBrokers)
+  appendIfDefined("kafkaTopic", kafkaTopic)
+  logInfo("starting with configuration", parameters...)
 }
