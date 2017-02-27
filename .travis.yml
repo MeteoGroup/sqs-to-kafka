@@ -5,6 +5,6 @@ services: docker
 sudo: required
 
 script:
-  - CGO_ENABLED=0 GOOS=linux GOARCH=amd64 -ldflags="-s -w" go build
+  - CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w"
   - docker build -t meteogroup/sqs-to-kafka:test .
   - test/test.sh
