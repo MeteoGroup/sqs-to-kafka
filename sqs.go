@@ -69,10 +69,10 @@ func deleteMessageBatch(messages Messages, sqsClient *sqs.SQS) {
     return
   }
   toDelete := []*sqs.DeleteMessageBatchRequestEntry{}
-  for _, forwarded := range messages {
+  for _, deleted := range messages {
     toDelete = append(toDelete, &sqs.DeleteMessageBatchRequestEntry{
-      Id:            forwarded.MessageId,
-      ReceiptHandle: forwarded.ReceiptHandle,
+      Id:            deleted.MessageId,
+      ReceiptHandle: deleted.ReceiptHandle,
     })
   }
   _, err := sqsClient.DeleteMessageBatch(&sqs.DeleteMessageBatchInput{
@@ -87,10 +87,10 @@ func releaseMessageBatch(messages Messages, sqsClient *sqs.SQS) {
     return
   }
   toRelease := []*sqs.ChangeMessageVisibilityBatchRequestEntry{}
-  for _, skipped := range messages {
+  for _, released := range messages {
     toRelease = append(toRelease, &sqs.ChangeMessageVisibilityBatchRequestEntry{
-      Id: skipped.MessageId,
-      ReceiptHandle: skipped.ReceiptHandle,
+      Id: released.MessageId,
+      ReceiptHandle: released.ReceiptHandle,
       VisibilityTimeout: aws.Int64(0),
     })
   }
