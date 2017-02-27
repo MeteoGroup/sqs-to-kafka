@@ -6,5 +6,15 @@ sudo: required
 
 script:
 - CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w"
-- docker build -t meteogroup/sqs-to-kafka:test .
-- test/test.sh
+- docker build -t "meteogroup/sqs-to-kafka:$COMMIT" .
+- test/test.sh "$COMMIT"
+
+deploy:
+  provider: script
+  on: { branch: master }
+  script:
+  - VERSION="`date '+%Y%m%dT%H%M%S'`"
+  - docker tag "meteogroup/sqs-to-kafka:$COMMIT" "meteogroup/sqs-to-kafka:$VERSION"
+  - docker tag "meteogroup/sqs-to-kafka:$COMMIT" "meteogroup/sqs-to-kafka"
+  - docker push "meteogroup/sqs-to-kafka:$VERSION"
+  - docker push "meteogroup/sqs-to-kafka"
