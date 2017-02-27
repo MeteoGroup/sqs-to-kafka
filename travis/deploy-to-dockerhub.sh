@@ -7,7 +7,7 @@ fi
 
 ( # temporarily disable shell debugging, docker hub password would leak otherwise
   set +x
-  docker login -e "$DOCKER_EMAIL" -u "$DOCKER_USER" -p "$DOCKER_PASS"
+  docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
 )
 
 docker tag "meteogroup/sqs-to-kafka:$COMMIT" "meteogroup/sqs-to-kafka:$IMAGE_TAG"
