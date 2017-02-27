@@ -51,6 +51,16 @@ for a complete list. When both are specified, commandline parameters take
 precedence over environment variables.
 
 
+## Docker
+
+A docker-ized variant is available `meteogroup/sqs-to-kafka`. Metrics are
+exposed on port `8080`. To run use
+
+```
+docker run -P meteogroup/sqs-to-kafka <additional commandline arguments>
+```
+
+
 ## License
 
 Copyright © 2017 MeteoGroup Deutschland GmbH,
