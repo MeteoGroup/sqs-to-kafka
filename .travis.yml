@@ -12,4 +12,4 @@ script:
 deploy:
   provider: script
   on: { branch: master }
-  script: bin/deploy-to-dockerhub.sh
+  script: travis/deploy-to-dockerhub.sh
