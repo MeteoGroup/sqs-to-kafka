@@ -18,7 +18,7 @@ on Windows). For further detail, e.g. cross-platform builds and custom build
 parameters, please refer to the go-documentation.
 
 
-## Running
+## Usage
 
 `sqs-to-kafka` takes the following commandline parameters:
 
