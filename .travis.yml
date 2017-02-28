@@ -1,15 +1,9 @@
 language: go
 go: 1.8.x
-
 services: docker
 sudo: required
-
-script:
-- CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w"
-- docker build -t "meteogroup/sqs-to-kafka:$COMMIT" .
-- test/test.sh "$COMMIT"
-
+script: bin/install.sh
 deploy:
-  provider: script
+- provider: script
   on: { branch: master }
   script: travis/deploy-to-dockerhub.sh
