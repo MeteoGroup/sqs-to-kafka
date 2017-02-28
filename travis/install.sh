@@ -5,7 +5,7 @@ if [ "$TRAVIS" != true ]; then
   exit 1
 fi
 
-GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o sqs-to-kafka-linux64
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o sqs-to-kafka-linux64
 ln sqs-to-kafka-linux64 sqs-to-kafka
 GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -o sqs-to-kafka-darwin64
 GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o sqs-to-kafka-windows64.exe
