@@ -2,7 +2,7 @@ language: go
 go: 1.8.x
 services: docker
 sudo: required
-script: bin/install.sh
+script: travis/install.sh
 deploy:
 - provider: script
   on: { branch: master }
