@@ -12,4 +12,4 @@ deploy:
     secure: f8REHh0pOqo7iamJi+b7dKZiVAmLkpn/tqqSfcw9qr4B3ERqBoLDnHt2INKSyJrljcS80xbt8tKifqCvPOgobNNO/kYRvHtHcKxxs4fMYduiiDCIQz5bTwoXBkedWh/nSmyqoC3zg5FqSeAQpzD0bI1STjMwmndArM9PAudHnne3RkNsLCxu1imN9sCriPHWyakuMngTrcuenPbkSVULeDe982eTW6r8fh87B8+t2RKgia2bDAMrvxaT92JP4DFcnpP0fv02GMOXPt++zf1tS2j2DM/FY5kI09JorcqZDFdrri5076bI1xgTQQjFKVnij4RW1opot3WyeVNGJ1WQI5bnhSOf6D3A9mnBxDOM2Fuo8t9KdwVZhJ2xWjNlxRHa89JiyF75yxXcR6vxcqcS79GakCz3xcFJ/aWP0aTRX6vUQaxTVeK2/+gbVPQZNAUnUXTfgalTAlEoWlPJv7RYXWPbQKbNaNLpj3VdLvnU6i9g06WkJ8ATFsVRrq9s7WdkLa5K26v+7iAwd/a8/FPxX0bZrXgoMCiNh3PFL+jzejKVoUBM+NFP1QlaVG+WccsT/hT3so7rok64oLKVUwtObUbJ7kU9ZczGf5Dihrz0CUGkOX3JQdtEcBWEicAzHzcWdVcqgDxTBOu6Js1ry7+H0yTBrjr3YXkMgpAxRMeytoo=
   on: { tags: true }
   skip_cleanup: true
-  file: [ sqs-to-kafka-linux64, sqs-to-kafka-darwin64, sqs-to-kafka-windows64 ]
+  file: [ sqs-to-kafka-linux64, sqs-to-kafka-darwin64, sqs-to-kafka-windows64.exe ]
