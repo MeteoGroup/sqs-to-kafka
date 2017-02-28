@@ -59,7 +59,7 @@ for a complete list.
 
 ## Docker
 
-A docker-ized variant is available `meteogroup/sqs-to-kafka`. Metrics are
+A docker-ized variant is available here [`meteogroup/sqs-to-kafka`](https://hub.docker.com/r/meteogroup/sqs-to-kafka). Metrics are
 exposed on port `8080`. To run use
 
 ```
