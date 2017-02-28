@@ -10,6 +10,7 @@ fi
   docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
 )
 
+IMAGE_TAG="${TRAVIS_TAG:-"`date '+%Y%m%dT%H%M%S'`"}"
 docker tag "meteogroup/sqs-to-kafka:$COMMIT" "meteogroup/sqs-to-kafka:$IMAGE_TAG"
 docker tag "meteogroup/sqs-to-kafka:$COMMIT" "meteogroup/sqs-to-kafka:latest"
 docker push "meteogroup/sqs-to-kafka:$IMAGE_TAG"
