@@ -5,7 +5,10 @@ sudo: required
 script: travis/install.sh
 deploy:
 - provider: script
-  on: { branch: master, tags: true }
+  on: { branch: master }
+  script: travis/deploy-to-dockerhub.sh
+- provider: script
+  on: { tags: true }
   script: travis/deploy-to-dockerhub.sh
 - provider: releases
   api_key:
