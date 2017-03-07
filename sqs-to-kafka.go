@@ -21,6 +21,7 @@ import (
 )
 
 func main() {
+  loadConfig()
   sqsClient := createSqsClient()
   kafkaProducer := createKafkaProducer()
   startPrometheusHttpExporter()
@@ -46,7 +47,7 @@ func forwardToKafka(messages Messages, kafkaProducer Producer) (forwarded Messag
       messageCounter.WithLabelValues("skipped").Inc()
     } else {
       forwarded = append(forwarded, message)
-      kafkaOffsets.WithLabelValues(strconv.FormatInt(int64(partition), 10)).Set(float64(offset))
+      kafkaOffsets.WithLabelValues(kafkaTopic, strconv.FormatInt(int64(partition), 10)).Set(float64(offset))
       messageCounter.WithLabelValues("forwarded").Inc()
     }
   }

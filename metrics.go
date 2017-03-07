@@ -24,8 +24,8 @@ import (
 var messageCounter = prometheus.NewCounterVec(prometheus.CounterOpts{Name:"messages", Help: "Messages handled"}, []string{"state"})
 var kafkaOffsets = prometheus.NewGaugeVec(prometheus.GaugeOpts{
   Name:"kafka_offset", Help: "Last known Kafka offsets",
-  ConstLabels: prometheus.Labels{"topic": kafkaTopic, "direction": "produced"},
-}, []string{"partition"})
+  ConstLabels: prometheus.Labels{"direction": "produced"},
+}, []string{"topic", "partition"})
 
 func startPrometheusHttpExporter() {
   if metricsAddress == "" {

@@ -33,7 +33,7 @@ var (
   awsReadConfig = false
 )
 
-func init() {
+func loadConfig() {
   flag.StringVar(&awsAccessKey, "aws-access-key", "", "AWS access key")
   flag.StringVar(&awsSecretKey, "aws-secret-key", "", "AWS secret key")
   flag.StringVar(&awsRegion, "aws-region", os.Getenv("AWS_REGION"), "AWS region")
