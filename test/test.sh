@@ -22,7 +22,8 @@ main() {
 }
 
 setup() {
-  docker-compose -p "$TEST_STAGE" up -d sqs-to-kafka
+  docker-compose -p "$TEST_STAGE" run init-test-stage
+  docker-compose -p "$TEST_STAGE" up -d
 }
 
 tear-down() {
