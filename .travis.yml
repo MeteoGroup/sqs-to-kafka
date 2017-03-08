@@ -1,4 +1,4 @@
-language: [ go, python ]
+language: go
 go: 1.8.x
 services: docker
 sudo: required
