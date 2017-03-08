@@ -5,7 +5,7 @@ sudo: required
 install:
 - pip install docker-compose
 - go get -t ./...
-script: travis/install.sh
+script: travis/build-and-test.sh
 deploy:
 - provider: script
   on: { branch: master }
