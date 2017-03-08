@@ -1,7 +1,10 @@
-language: go
+language: [ go, python ]
 go: 1.8.x
 services: docker
 sudo: required
+install:
+- pip install docker-compose
+- go get -t ./...
 script: travis/install.sh
 deploy:
 - provider: script
