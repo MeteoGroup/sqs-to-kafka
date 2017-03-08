@@ -10,5 +10,5 @@ ln sqs-to-kafka-linux64 sqs-to-kafka
 GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -o sqs-to-kafka-darwin64
 GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o sqs-to-kafka-windows64.exe
 
-docker build -t "meteogroup/sqs-to-kafka:$COMMIT" .
+docker build --no-cache --pull --squash -t "meteogroup/sqs-to-kafka:$COMMIT" .
 test/test.sh "$COMMIT"
