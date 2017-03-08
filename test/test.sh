@@ -22,14 +22,7 @@ main() {
 }
 
 setup() {
-  local i
-  docker-compose -p "$TEST_STAGE" up -d kafka sqs
-
-  wait-for kafka 9092
-  wait-for sqs 9324
-  sqs create-queue --queue-name 'messages'
-
-  docker-compose -p "$TEST_STAGE" up -d sqs-to-kakfa
+  docker-compose -p "$TEST_STAGE" up -d sqs-to-kafka
 }
 
 tear-down() {
@@ -45,13 +38,6 @@ tear-down() {
 sqs() {
   in-test-stage -e 'AWS_ACCESS_KEY_ID=' -e 'AWS_SECRET_ACCESS_KEY=' \
     toolbelt/aws --region '(invalid)' --endpoint-url 'http://sqs:9324' sqs "$@"
-}
-
-wait-for() {
-  local service="$1" port="$2"
-  for ((i = 0; i < 10; ++i)); do
-    in-test-stage toolbelt/netcat -z "$service" "$port" && break
-  done
 }
 
 read-kafka-messages() {
