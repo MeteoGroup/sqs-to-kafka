@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 if [ "$TRAVIS" != true ]; then
   echo "This script is intended to run within the travis build only" 1>&2
@@ -10,6 +10,7 @@ fi
   docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
 )
 
+set -x
 IMAGE_TAG="${TRAVIS_TAG:-"`date '+%Y%m%dT%H%M%S'`"}"
 docker tag "meteogroup/sqs-to-kafka:$COMMIT" "meteogroup/sqs-to-kafka:$IMAGE_TAG"
 docker tag "meteogroup/sqs-to-kafka:$COMMIT" "meteogroup/sqs-to-kafka:latest"
